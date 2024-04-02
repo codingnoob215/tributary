@@ -4,6 +4,7 @@ import redis as redis
 from flask import Flask, request
 from loguru import logger
 
+# define constants
 HISTORY_LENGTH = 10
 DATA_KEY = "engine_temperature"
 
@@ -30,7 +31,7 @@ def record_engine_temperature():
     logger.info(f"engine temperature list now contains these values: {engine_temperature_values}")
 
     logger.info(f"record request successful")
-    return {"success": True}, 200
+    return engine_temperature, engine_temperature/10
 
 
 # practically identical to the above
